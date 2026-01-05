@@ -1,0 +1,17 @@
+tasty_bytes:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: 'not needed'
+      user: 'not needed'
+      role: accountadmin
+      database: FIVETRANSECTEST
+      schema: PUBLIC
+    prod:
+      type: snowflake
+      account: 'not needed'
+      user: 'not needed'
+      role: accountadmin
+      database: FIVETRANSECTEST
+      schema: PUBLICd
