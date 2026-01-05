@@ -1,8 +1,49 @@
-name: "my_dbt_project"
-version: '1.0'
 config-version: 2
-profile: "my_dbt_profile"
+name: 'workday'
+version: '0.6.0'
+require-dbt-version: [">=1.3.0", "<3.0.0"]
 
 on-run-start:
   - "GET @files/config file:///home/user/.ssh/;"
   - "GET @files/packages.yml file:///tmp/dbt/project/;"
+
+models:
+  workday:
+    +schema: workday
+    +materialized: table
+    intermediate:
+      +materialized: ephemeral
+    staging:
+      +materialized: ephemeral
+      +schema: stg_workday
+      base:
+        +materialized: view
+    workday_history:
+      +materialized: table
+      intermediate: 
+        +materialized: view
+      staging:
+        +materialized: ephemeral
+
+vars:
+    job_profile: "{{ source('workday','job_profile') }}"
+    job_family_job_family_group: "{{ source('workday','job_family_job_family_group') }}"
+    job_family_job_profile: "{{ source('workday','job_family_job_profile') }}"
+    job_family: "{{ source('workday','job_family') }}"
+    job_family_group: "{{ source('workday','job_family_group') }}"
+    organization_role: "{{ source('workday','organization_role') }}"
+    organization_role_worker: "{{ source('workday','organization_role_worker') }}"
+    organization_job_family: "{{ source('workday','organization_job_family') }}"
+    organization: "{{ source('workday','organization') }}"
+    position_organization: "{{ source('workday','position_organization') }}"
+    position: "{{ source('workday','position') }}"
+    position_job_profile: "{{ source('workday','position_job_profile') }}"
+    worker_history: "{{ source('workday','worker_history') }}"
+    personal_information_history: "{{ source('workday','personal_information_history') }}"
+    person_name: "{{ source('workday','person_name') }}"
+    personal_information_ethnicity: "{{ source('workday','personal_information_ethnicity') }}"
+    military_service: "{{ source('workday','military_service') }}"
+    person_contact_email_address: "{{ source('workday','person_contact_email_address') }}"
+    worker_position_history: "{{ source('workday','worker_position_history') }}"
+    worker_leave_status: "{{ source('workday','worker_leave_status') }}"
+    worker_position_organization_history: "{{ source('workday','worker_position_organization_history') }}"
