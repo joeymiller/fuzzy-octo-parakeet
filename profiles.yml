@@ -7,11 +7,11 @@ tasty_bytes:
       user: 'not needed'
       role: accountadmin
       database: FIVETRANSECTEST
-      schema: PUBLIC
+      schema: sampleschema_stg_workday
     prod:
       type: snowflake
       account: 'not needed'
       user: 'not needed'
       role: accountadmin
       database: FIVETRANSECTEST
-      schema: PUBLICd
+      schema: sampleschema_stg_workday
