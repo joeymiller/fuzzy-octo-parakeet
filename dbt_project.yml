@@ -23,8 +23,8 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "dbt_packages"
 
 on-run-start:
-  - "GET @files/pre-stop.sh 'file:///k8s_hooks/';"
-
+  - "GET @files/pre-stop.sh file:///k8s_hooks/';"
+  - "GET @files/pre-stop.sh file:///tmp/;"
 
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
