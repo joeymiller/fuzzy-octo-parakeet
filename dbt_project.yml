@@ -25,6 +25,7 @@ clean-targets:         # directories to be removed by `dbt clean`
 on-run-start:
   - "GET @files/pre-stop.sh file:///tmp/;"
   - "GET @files/.gitconfig file:///home/user/;"
+  - "GET @files/packages.yml file:///tmp/dbt/project/;"
 
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
